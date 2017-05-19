@@ -1,0 +1,10 @@
+<div class="type--datarow">
+    <div class="datarow__left">
+        <span>
+            {{ model.getAttributes()|join(', ')|slice(0, 50) ~ '...'|raw }}            
+        </span>
+    </div>
+    <div class="datarow__right">
+        <span>...</span>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{% extends "antares/foundation::layouts.antares.index" %}   
+{% block content %}     
+    <div class="grid-col grid-col--big">
+        <div class="card card--tabs" data-scrollable >
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events opacity-forced">
+                <div class="mdl-tabs__tab-bar">
+                    {% for name,attributes in tabs %}
+                        <a href="#{{ name }}" class="mdl-tabs__tab {{ loop.index0==0?'is-active':'' }}">
+                            {{ attributes.title }}<span class="mdl-tabs__ripple-container mdl-js-ripple-effect" ><span class="mdl-ripple"></span></span>
+                        </a>                    
+                    {% endfor %}
+                </div>
+                {% for name,attributes in tabs %}
+                    <div class="mdl-tabs__panel {{ loop.index0==0?'is-active':'' }}" id="{{ name }}">
+                        {{ attributes.datatable|raw }}
+                    </div>                
+                {% endfor %}
+            </div>            
+        </div>
+    </div>
+{% endblock %}    
+
+

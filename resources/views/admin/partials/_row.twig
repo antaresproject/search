@@ -1,0 +1,8 @@
+<span class="search-content">
+    {{ content|raw }}
+</span>
+{% if score %}
+    <span>
+        <strong>( {{ score }}% )</strong>
+    </span>
+{% endif %}

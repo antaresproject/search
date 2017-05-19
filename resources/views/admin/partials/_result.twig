@@ -1,0 +1,27 @@
+<ul class="search-rows">         
+    {% for element in paginator %}      
+        {% if element.group %}    
+            <li class="none"> 
+                <h4>
+                    {{ trans('antares/search::messages.category.'~element.group) }}   
+                    {% if element.total>10 %}
+                        <a href="{{ handles('antares::search/'~element.group,{'search':query}) }}" >
+                            {{ trans('antares/search::messages.show_all',{'count':element.total}) }}
+                        </a>
+                    {% endif %}
+                </h4>
+                <hr/>
+            </li>
+        {% elseif category and loop.index0<=0 %}
+            <h4>
+                {{ trans('antares/search::messages.category.'~category) }} ({{ paginator.total }})               
+            </h4>
+            <hr />
+        {% endif %}    
+        <li class="timeline__entry--ok">
+            <div class="timeline__padding">
+                {{ element.render()|raw }} {{ element.relevance }}
+            </div>
+        </li>   
+    {% endfor %}
+</ul>
