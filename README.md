@@ -1,4 +1,4 @@
-# Antares Search Component
+# Antares Search Module
 
 [![Laravel 5.4](https://img.shields.io/badge/Laravel-5.4-orange.svg)](http://laravel.com)
 [![Coverage Status](https://coveralls.io/repos/github/antaresproject/project/badge.svg?branch=master)](https://coveralls.io/github/antaresproject/project?branch=master)
@@ -11,7 +11,7 @@
 
 ## Documentation
 
-Antares Search Component documentation documentation is not finished yet.
+Antares Search Module documentation documentation is not finished yet.
 
 Full Antares documentation can be found at [antaresproject.io/docs](http://antaresproject.io/docs).
 
@@ -43,5 +43,3 @@ Please follow [Contribution Guide](http://antaresproject.io/docs/site/getting_st
 ## License
 
 This software is released under the BSD 3-Clause License.
-
-© 2017 INBS.Software , all rights reserved.
