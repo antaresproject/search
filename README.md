@@ -13,6 +13,8 @@
 
 Antares Search Module documentation documentation is not finished yet.
 
+![search](docs/img/search.png)
+
 Full Antares documentation can be found at [antaresproject.io/docs](http://antaresproject.io/docs).
 
 
