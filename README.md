@@ -9,11 +9,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/antaresproject/project.svg)](https://github.com/antaresproject/project/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/antaresproject/project/master/LICENSE)
 
+Search Module is a package for full-text search over Eloquent models based on [Datatables](http://antaresproject.io/docs/site/services/datatables/index.html). 
+Allows you to perform searches in a table by priorites and relations, decorations of responses as partialized [Twig](https://twig.sensiolabs.org/) views.
+
+![search](docs/img/search.png)
+
 ## Documentation
 
 Antares Search Module documentation documentation is not finished yet.
-
-![search](docs/img/search.png)
 
 Full Antares documentation can be found at [antaresproject.io/docs](http://antaresproject.io/docs).
 
