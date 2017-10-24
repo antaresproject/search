@@ -1,15 +1,3 @@
-//
-// Search Auto Complete Component 
-//
-
-// T0D0 :
-// Item count - check!
-// Highlight term - check!
-// Categoriez - check! 
-// Load More - check!
-// data-protection - WIP!
-// Integration with old V - WIP!
-
 AntaresAC = function () {};
 
 AntaresAC.prototype.init = function () {
@@ -147,11 +135,6 @@ AntaresAC.prototype.logic = function () {
         }
     });
 
-//    $('#main-search').on('input', function () {
-//        if (!$(this).val()) {
-//            $(this).closest('.search-box').find('.mdl-textfield__label').show();
-//        }
-//    });
 
 
 
@@ -191,10 +174,6 @@ AntaresAC.prototype.logic = function () {
             var search = request.term,
                     form = $('#search-form'),
                     container = form.find('input').parent();
-//            if (search in searchCache) {
-//                response(searchCache[search]);
-//                return;
-//            }
             var $element = $(this.element),
                     previous_request = $element.data("jqXHR");
             if (previous_request) {
@@ -242,7 +221,6 @@ AntaresAC.prototype.logic = function () {
                         };
                         noty($.extend({}, APP.noti.errorFM("lg", "full"), attributes));
                     }
-
                 }
             }));
         },
@@ -251,8 +229,3 @@ AntaresAC.prototype.logic = function () {
 
 }
 
-$(function () {
-    window.AntaresAC = new AntaresAC();
-    window.AntaresAC.init();
-
-});

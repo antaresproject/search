@@ -1,13 +1,13 @@
-<div class="search-box mr16" >
+<div class="mr16 search-box" >
     <i class="zmdi zmdi-search"></i>    
     <input type="hidden" name="_protection" value="{{protectionString}}" class="search-protection" />
     <form action="{{ handles('antares::search/') }}" method="GET" id="search-form">        
-        <div class="search-box__mdl-textfield mdl-textfield mdl-js-textfield">
+        <div class="mdl-js-textfield mdl-textfield mdl-textfield--AR mdl-textfield--floating-label search-box__mdl-textfiel">
             <input class="mdl-textfield__input search-box__search-field" name="search" type="text" id="main-search" value="{{ search|e }}">
             <label class="mdl-textfield__label" for="search" data-placeholder="{{ trans('antares/search::messages.search') }}" data-min-length="{{ trans('antares/search::messages.not_enough_characters',{'min':1}) }}">
                 {{ trans('antares/search::messages.search') }}
             </label>
         </div>
     </form>
-    <i class="search-box__close zmdi zmdi-close mr16 "></i>
+    <i class="zmdi zmdi-close mr16 search-box__close"></i>
 </div>
