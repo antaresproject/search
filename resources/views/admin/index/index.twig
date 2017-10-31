@@ -1,21 +1,28 @@
-{% extends "antares/foundation::layouts.antares.index" %}   
-{% block content %}     
-    <div class="grid-col grid-col--big">
-        <div class="card card--tabs" data-scrollable >
-            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events opacity-forced">
-                <div class="mdl-tabs__tab-bar">
+{% extends "antares/foundation::layouts.antares.datatable" %}   
+{% block content %}    
+    <div class="grid-stack-item" data-gs-no-move="1" data-gs-no-resize="1" data-gs-x="5" data-gs-y="0" data-gs-width="14" data-gs-height="19" data-gs-min-width="24" data-gs-min-height="18" data-gs-auto-position="0">
+        <div class="grid-stack-item-content">
+            <div class="card card--pagination card--tabs" data-preload>
+                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <div class="mdl-tabs__tab-bar">
+                        <div class="swiper-container swiper-mdl-tabs tab-bar--tape">
+                            {% for name,attributes in tabs %}
+                                <div class="swiper-slide">
+                                    <a href="#{{ name }}" class="mdl-tabs__tab {{ loop.index0==0?'is-active':'' }}">
+                                        {{ attributes.title }}
+                                    </a>                    
+                                </div>
+                            {% endfor %}                                                            
+                        </div>
+                    </div>
                     {% for name,attributes in tabs %}
-                        <a href="#{{ name }}" class="mdl-tabs__tab {{ loop.index0==0?'is-active':'' }}">
-                            {{ attributes.title }}<span class="mdl-tabs__ripple-container mdl-js-ripple-effect" ><span class="mdl-ripple"></span></span>
-                        </a>                    
+                        <div class="mdl-tabs__panel {{ loop.index0==0?'is-active':'' }}" id="{{ name }}">
+                            {{ attributes.datatable|raw }}
+                        </div>                
                     {% endfor %}
                 </div>
-                {% for name,attributes in tabs %}
-                    <div class="mdl-tabs__panel {{ loop.index0==0?'is-active':'' }}" id="{{ name }}">
-                        {{ attributes.datatable|raw }}
-                    </div>                
-                {% endfor %}
-            </div>            
+            </div>
+
         </div>
     </div>
 {% endblock %}    
