@@ -1,32 +1,28 @@
 # Changelog
 
-### [0.9.2]
+
+## [0.9.2]
 
 ##### New
 
-* New composer.json structure.
-* Laravel 5.3 integration.
+* Packages version. 
+* Frontend integration. 
+* Readme.md, FIX: small fixes. 
+* Module description. 
+* Initial commit. 
 
 ##### Changes
 
-* Readme.md structure change.
-* Search engine changes, hide unwanted tabs when no results.
-* Extension finder change classname.
-* Added homepage and friendly names to components.
-* Updated ACL file.
-* Quick search engine based on datatables results.
-
-##### Fixes
-
-* Remove console log, add total search tabs.
+* Search integration. 
+* :book: update of README.md. 
+* Composer.json update, phpunit.xml configuration, ADD: coveralls. 
+* Update composer.json. 
+* Module preview. 
+* Composer.json - description of module. 
+* Readme.md. 
 
 ##### Other
 
-* Update composer.json.
-* Fix for new composer handler.
-* Fix for new composer handler.
-* Changed project name on composer.
-* INITIAL ANTARES COMMIT.
-* Initial commit.
-
+* Update composer.json. 
+* Merge pull request #1 from antaresproject/0.9.2-laravel5.5. 
 
