@@ -17,11 +17,9 @@
  * @copyright  (c) 2017, Antares
  * @link       http://antaresproject.io
  */
-
-
-
 use Illuminate\Routing\Router;
 
 $router->group(['prefix' => 'search'], function (Router $router) {
+    $router->get('/', 'IndexController@search');
     $router->match(['GET', 'POST'], '/{category?}', 'IndexController@index');
 });

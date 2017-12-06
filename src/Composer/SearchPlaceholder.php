@@ -56,6 +56,7 @@ class SearchPlaceholder
         $search           = Input::get('search');
         $string           = serialize([
             'protection_string' => config('antares/search::protection_string'),
+            'uid'               => user()->id,
             'app_key'           => env('APP_KEY'),
             'time'              => time()]);
         $protectionString = Crypt::encrypt($string);

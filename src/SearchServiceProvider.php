@@ -92,6 +92,8 @@ class SearchServiceProvider extends ModuleServiceProvider
         if (app()->bound('antares-search-row-decorator')) {
             $this->app->make('antares-search-response')->boot();
         }
+        $this->loadFrontendRoutesFrom(__DIR__ . '/routes.php');
+        $this->loadBackendRoutesFrom(__DIR__ . '/routes.php');
     }
 
 }

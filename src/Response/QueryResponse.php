@@ -97,42 +97,48 @@ class QueryResponse
      */
     public function boot()
     {
-        if (!$this->isValid()) {
-            return false;
-        }
-        $serviceProvider = new \Antares\Customfields\CustomFieldsServiceProvider(app());
-        $serviceProvider->register();
-        $serviceProvider->boot();
-        $query           = e($this->request->input('search'));
-        $cacheKey        = 'search_' . snake_case($query);
-        $formated        = [];
-        try {
-            //$formated = Cache::remember($cacheKey, 5, function() use($query) {
-            $datatables = config('search.datatables', []);
-            foreach ($datatables as $classname) {
-                $datatable = $this->getDatatableInstance($classname);
-                if (!$datatable) {
-                    continue;
+        listen('quick-search', function() {
+            if (!$this->isValid()) {
+                return false;
+            }
+            $serviceProvider = new \Antares\Customfields\CustomFieldsServiceProvider(app());
+            $serviceProvider->register();
+            $serviceProvider->boot();
+            $query           = e($this->request->input('search'));
+            $cacheKey        = 'search_' . snake_case($query);
+            $formated        = [];
+            try {
+                //$formated = Cache::remember($cacheKey, 5, function() use($query) {
+
+                $datatables = config('search.datatables', []);
+                foreach ($datatables as $classname) {
+                    $datatable = $this->getDatatableInstance($classname);
+                    if (!$datatable) {
+                        continue;
+                    }
+                    if (!$datatable->authorize()) {
+                        continue;
+                    }
+                    request()->merge(['inline_search' => ['value' => $query, 'regex' => false]]);
+                    $formated = array_merge($formated, app('antares-search-row-decorator')->setDatatable($datatable)->getRows());
                 }
-                request()->merge(['inline_search' => ['value' => $query, 'regex' => false]]);
-                $formated = array_merge($formated, app('antares-search-row-decorator')->setDatatable($datatable)->getRows());
-            }
 
-            if (empty($formated)) {
-                $formated[] = [
-                    'content'  => '<div class="type--datarow"><div class="datarow__left"><span>No results found...</span></div></div>',
-                    'url'      => '#',
-                    'category' => '',
-                    'total'    => 0
-                ];
-            }
+                if (empty($formated)) {
+                    $formated[] = [
+                        'content'  => '<div class="type--datarow"><div class="datarow__left"><span>No results found...</span></div></div>',
+                        'url'      => '#',
+                        'category' => '',
+                        'total'    => 0
+                    ];
+                }
 
-            $jsonResponse = new JsonResponse($formated, 200);
-        } catch (Exception $e) {
-            $jsonResponse = new JsonResponse(['message' => $e->getMessage()], 500);
-        }
-        $jsonResponse->send();
-        return exit();
+                $jsonResponse = new JsonResponse($formated, 200);
+            } catch (Exception $e) {
+                $jsonResponse = new JsonResponse(['message' => $e->getMessage()], 500);
+            }
+            $jsonResponse->send();
+            return exit();
+        });
     }
 
     /**

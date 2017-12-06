@@ -65,4 +65,14 @@ class IndexController extends AdminController
         return $this->processor->index(Input::all(), $category);
     }
 
+    /**
+     * Quick search action
+     * 
+     * @return \Illuminate\View\View
+     */
+    public function search()
+    {
+        return event('quick-search');
+    }
+
 }
