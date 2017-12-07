@@ -1,6 +1,7 @@
 <div class="mr16 search-box" >
     <i class="zmdi zmdi-search"></i>    
     <input type="hidden" name="_protection" value="{{protectionString}}" class="search-protection" />
+
     <form action="{{ handles('antares::search/') }}" method="GET" id="search-form">        
         <div class="mdl-js-textfield mdl-textfield mdl-textfield--AR mdl-textfield--floating-label search-box__mdl-textfiel">
             <input class="mdl-textfield__input search-box__search-field" name="search" type="text" id="main-search" value="{{ search|e }}">

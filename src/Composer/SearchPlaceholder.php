@@ -60,6 +60,7 @@ class SearchPlaceholder
             'app_key'           => env('APP_KEY'),
             'time'              => time()]);
         $protectionString = Crypt::encrypt($string);
+
         $this->app->make('antares.widget')
                 ->make('placeholder.global_search')
                 ->add('search')

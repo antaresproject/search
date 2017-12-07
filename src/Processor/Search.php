@@ -53,9 +53,7 @@ class Search extends Processor
     public function index(array $input = array(), $category = null)
     {
         $query = e(array_get($input, 'search.value', null));
-        if (!is_null($category)) {
-            return $this->category($query, $category);
-        }
+
         $this->breadcrumb->onIndex();
         $datatables = config('search.datatables');
         $tabs       = [];
